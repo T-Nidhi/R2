@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechBiz Solutions</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f4f4f4, #e2e2e2);
+            color: #333;
+            animation: backgroundAnimation 20s infinite;
+        }
+         /* Snowflakes Animation */
+         .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 1000;
+            color: rgb(82, 191, 234);
+            font-size: 1.5em;
+            pointer-events: none;
+            animation: fall linear infinite, sway 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes sway {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+        }
+
+        /* Snowflake sizes and timing */
+        .snowflake:nth-child(1) {
+            left: 10%;
+            animation-duration: 10s;
+            animation-delay: 0s;
+            font-size: 2em;
+        }
+
+        .snowflake:nth-child(2) {
+            left: 20%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+            font-size: 2.2em;
+        }
+
+        .snowflake:nth-child(3) {
+            left: 30%;
+            animation-duration: 8s;
+            animation-delay: 4s;
+            font-size: 2.4em;
+        }
+
+        .snowflake:nth-child(4) {
+            left: 40%;
+            animation-duration: 14s;
+            animation-delay: 6s;
+            font-size: 2.6em;
+        }
+
+        .snowflake:nth-child(5) {
+            left: 50%;
+            animation-duration: 10s;
+            animation-delay: 8s;
+            font-size: 2.8em;
+        }
+
+        .snowflake:nth-child(6) {
+            left: 60%;
+            animation-duration: 12s;
+            animation-delay: 10s;
+            font-size: 2.4em;
+        }
+
+        .snowflake:nth-child(7) {
+            left: 70%;
+            animation-duration: 8s;
+            animation-delay: 12s;
+            font-size: 2.2em;
+        }
+
+        .snowflake:nth-child(8) {
+            left: 80%;
+            animation-duration: 14s;
+            animation-delay: 14s;
+            font-size: 2.6em;
+        }
+
+        .snowflake:nth-child(9) {
+            left: 90%;
+            animation-duration: 10s;
+            animation-delay: 16s;
+            font-size: 2.8em;
+        }
+
+        /* Header Styling */
+        .header {
+            background: linear-gradient(135deg, #1e90ff, #4169e1);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .header ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        .header ul li a {
+            color: rgb(40, 218, 241);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .header ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Typography */
+        h1.title {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h2.heading {
+            font-size: 2.5em;
+            color: #333;
+            text-align: center;
+            animation: colorTransition 5s infinite alternate;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #666;
+            margin: 15px 20px;
+            text-align: justify;
+        }
+
+        /* List Styling */
+        ul {
+            padding: 10px 20px;
+            list-style-type: none;
+        }
+
+        ul li {
+            background: #f0f0f0;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        ul li:hover {
+            background: #e0e0e0;
+            transform: translateX(5px);
+        }
+
+        /* Table Styling */
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background: #1e90ff;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        tr:nth-child(even) {
+            background: #dad1d1;
+        }
+
+        /* Multimedia Styling */
+        #multimedia {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        img {
+            width: 40%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        video {
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        /* Footer Styling */
+        footer {
+            background: #12175f;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #a3e581;
+        }
+
+        /* Background Animation */
+        @keyframes backgroundAnimation {
+            0% {background: linear-gradient(135deg, #f4f4f4, #e2e2e2);}
+            50% {background: linear-gradient(135deg, #d3d3d3, #c0c0c0);}
+            100% {background: linear-gradient(135deg, #f4f4f4, #e2e2e2);}
+        }
+
+        /* Color Transition in Headings */
+        @keyframes colorTransition {
+            0% {color: #e45379;}
+            100% {color: #4269ea;}
+        }
+    </style>
+</head>
+<body>
+     <!-- Snowflakes -->
+     <div class="snowflake">❄</div>
+     <div class="snowflake">❄</div>
+     <div class="snowflake">❄</div>
+     <div class="snowflake">❄</div>
+     <div class="snowflake">❄</div>
+     <div class="snowflake">❄</div>
+     <div class="snowflake">❄</div>
+     <div class="snowflake">❄</div>
+     <div class="snowflake">❄</div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1 class="title">TechBiz Solutions</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="heading">About Us</h2>
+            <p>We are a leading technology solutions provider, specializing in innovative services for businesses of all sizes.</p>
+            <ul>
+                <li>Custom Software Development</li>
+                <li>Cloud Solutions</li>
+                <li>Cybersecurity</li>
+            </ul>
+            <p>For more details, visit our <a href="services.html">services page</a>.</p>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2 class="heading">Our Services</h2>
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Web Development</td>
+                    <td>Creating responsive and dynamic websites.</td>
+                </tr>
+                <tr>
+                    <td>Mobile Apps</td>
+                    <td>Developing apps for iOS and Android platforms.</td>
+                </tr>
+                <tr>
+                    <td>Consulting</td>
+                    <td>Providing expert IT consulting services.</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Multimedia Section -->
+        <section id="multimedia">
+            <h2 class="heading">Our Work</h2>
+            <p>Take a look at our recent projects:</p>
+            <img src="/Users/nidhithakkar/Downloads/Unknown" alt="Technology Image">
+            <video controls>
+                <source src="/Users/nidhithakkar/Downloads/tech.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 TechBiz Solutions. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
+</body>
+</html>
